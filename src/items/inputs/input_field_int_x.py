@@ -1,0 +1,68 @@
+from typing import Any, Union, Callable, Tuple, List
+
+from src.items.inputs.input_field import InputField
+import dearpygui.dearpygui as dpg
+
+
+class InputFieldIntX(InputField):
+    def __init__(self,
+                 *,
+                 label: str = None,
+                 user_data: Any = None,
+                 use_internal_label: bool = True,
+                 tag: Union[int, str] = 0,
+                 width: int = 0,
+                 indent: int = -1,
+                 parent: Union[int, str] = 0,
+                 before: Union[int, str] = 0,
+                 source: Union[int, str] = 0,
+                 payload_type: str = '$$DPG_PAYLOAD',
+                 callback: Callable = None,
+                 drag_callback: Callable = None,
+                 drop_callback: Callable = None,
+                 show: bool = True,
+                 enabled: bool = True,
+                 pos: Union[List[int], Tuple[int, ...]] = [],
+                 filter_key: str = '',
+                 tracked: bool = False,
+                 track_offset: float = 0.5,
+                 default_value: Union[List[int], Tuple[int, ...]] = (0, 0, 0, 0),
+                 min_value: int = 0,
+                 max_value: int = 100,
+                 size: int = 4,
+                 min_clamped: bool = False,
+                 max_clamped: bool = False,
+                 on_enter: bool = False,
+                 readonly: bool = False,
+                 **kwargs
+                 ):
+        self.identifier = dpg.add_input_intx(
+            min_clamped=min_clamped,
+            label=label,
+            tracked=tracked,
+            parent=parent,
+            max_clamped=max_clamped,
+            before=before,
+            readonly=readonly,
+            indent=indent,
+            show=show,
+            on_enter=on_enter,
+            user_data=user_data,
+            filter_key=filter_key,
+            enabled=enabled,
+            max_value=max_value,
+            min_value=min_value,
+            callback=callback,
+            payload_type=payload_type,
+            drop_callback=drop_callback,
+            track_offset=track_offset,
+            source=source,
+            drag_callback=drag_callback,
+            default_value=default_value,
+            use_internal_label=use_internal_label,
+            width=width,
+            pos=pos,
+            tag=tag,
+            size=size,
+            **kwargs
+        )

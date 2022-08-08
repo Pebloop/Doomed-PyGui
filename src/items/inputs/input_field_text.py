@@ -1,0 +1,78 @@
+from typing import Any, Union, Callable, Tuple, List
+
+from src.items.inputs.input_field import InputField
+from src.items.items import Item
+import dearpygui.dearpygui as dpg
+
+from src.items.tippable_item import TippableItem
+
+
+class InputFieldText(InputField):
+    def __init__(self,
+                 *,
+                 label: str = None,
+                 user_data: Any = None,
+                 use_internal_label: bool = True,
+                 tag: Union[int, str] = 0,
+                 width: int = 0,
+                 height: int = 0,
+                 indent: int = -1,
+                 parent: Union[int, str] = 0,
+                 before: Union[int, str] = 0,
+                 source: Union[int, str] = 0,
+                 payload_type: str = '$$DPG_PAYLOAD',
+                 callback: Callable = None,
+                 drag_callback: Callable = None,
+                 drop_callback: Callable = None,
+                 show: bool = True,
+                 enabled: bool = True,
+                 pos: Union[List[int], Tuple[int, ...]] = [],
+                 filter_key: str = '', tracked: bool = False,
+                 track_offset: float = 0.5, default_value: str = '',
+                 hint: str = '',
+                 multiline: bool = False,
+                 no_spaces: bool = False,
+                 uppercase: bool = False,
+                 tab_input: bool = False,
+                 decimal: bool = False,
+                 hexadecimal: bool = False,
+                 readonly: bool = False,
+                 password: bool = False,
+                 scientific: bool = False,
+                 on_enter: bool = False,
+                 **kwargs
+                 ):
+        self.identifier = dpg.add_input_text(label=label,
+                                             user_data=user_data,
+                                             use_internal_label=use_internal_label,
+                                             tag=tag,
+                                             width=width,
+                                             height=height,
+                                             indent=indent,
+                                             parent=parent,
+                                             before=before,
+                                             source=source,
+                                             payload_type=payload_type,
+                                             callback=callback,
+                                             drag_callback=drag_callback,
+                                             drop_callback=drop_callback,
+                                             show=show,
+                                             enabled=enabled,
+                                             pos=pos,
+                                             filter_key=filter_key,
+                                             tracked=tracked,
+                                             track_offset=track_offset,
+                                             default_value=default_value,
+                                             hint=hint,
+                                             multiline=multiline,
+                                             no_spaces=no_spaces,
+                                             uppercase=uppercase,
+                                             tab_input=tab_input,
+                                             decimal=decimal,
+                                             hexadecimal=hexadecimal,
+                                             readonly=readonly,
+                                             password=password,
+                                             scientific=scientific,
+                                             on_enter=on_enter,
+                                             **kwargs
+                                             )
